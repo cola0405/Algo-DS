@@ -22,11 +22,11 @@ class SegmentTree:
 
     def __query(self, start, end, left, right, inx):
         # out of range
-        if start < left or end > right:
+        if start > right or end < left:
             return -float('inf')
 
         # overlap
-        elif start >= left and end <= right:
+        elif start == left and end == right:
             return self.tree[inx]
 
         # partial overlap
@@ -69,4 +69,4 @@ print(st.query(0,3))
 
 # update arr[0] to 8
 st.update(0,8)
-print(st.tree)
+print(st.query(0,3))
